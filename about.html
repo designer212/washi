@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASH International Trust | Identity</title>
+    <style>
+        :root {
+            --forest-green: #1b4332;
+            --dark-green: #2d6a4f;
+            --fresh-green: #52b788;
+            --light-bg: #f4f9f4;
+            --text-dark: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--forest-green);
+            color: white;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo { font-size: 1.4rem; font-weight: bold; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: #e2e8f0; text-decoration: none; font-weight: bold; }
+        .nav-links a:hover, .nav-links a.active { color: var(--fresh-green); }
+
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+        .hamburger span { width: 25px; height: 3px; background-color: white; }
+
+        /* Main Content Container Layout */
+        .main-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            color: var(--forest-green);
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--fresh-green);
+            padding-bottom: 10px;
+        }
+
+        .identity-card {
+            background: white;
+            border-left: 5px solid var(--dark-green);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .identity-card h3 {
+            color: var(--dark-green);
+            margin-bottom: 10px;
+        }
+
+        .inline-image-box {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .inline-image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-pill {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid var(--fresh-green);
+            background-color: transparent;
+            color: var(--fresh-green);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-pill:hover { background-color: var(--fresh-green); color: var(--forest-green); }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background-color: var(--forest-green); padding: 20px; }
+            .nav-links.show { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">WASH INTERNATIONAL</div>
+            <button class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">Our Identity</a></li>
+                <li><a href="pillars.html">Core Pillars</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <h2 class="page-title">Who We Are</h2>
+        
+        <div class="identity-card">
+            <h3>Our Vision</h3>
+            <p>To see families and individuals have access to clean WASH services and build absolute climate resilience from the household level upward.</p>
+        </div>
+
+        <div class="inline-image-box">
+            <img src="images/community.jpg" alt="Malawi Community Interventions">
+        </div>
+
+        <div class="identity-card">
+            <h3>Our Mission</h3>
+            <p>To scale clean water access and precise environmental resource management strategies, strengthening baseline local coping mechanisms and stabilizing family life.</p>
+        </div>
+
+        <div class="identity-card">
+            <h3>Core Values</h3>
+            <p>Rooted in Human Dignity, Equality, Transparency, Strategic Stewardship, and Gender-Inclusive Interventions.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="pillars.html" class="btn-pill">View Our Strategy Pillars</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('show'); }
+    </script>
+</body>
+</html>
