@@ -92,6 +92,7 @@
             border-radius: 50px;
             font-weight: bold;
             font-size: 0.85rem;
+            max-width: fit-content;
             cursor: pointer;
             text-transform: uppercase;
         }
@@ -120,7 +121,7 @@
         .section-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
         .section-title {
@@ -141,7 +142,14 @@
             border-radius: 2px;
         }
 
-        /* --- SECTION 1: TRUST FOUNDATION & IDENTITY --- */
+        .section-subtitle {
+            color: var(--muted-gray);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        /* --- TRUST FOUNDATION & IDENTITY --- */
         .foundation-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -205,7 +213,7 @@
             line-height: 1.5;
         }
 
-        /* Strategic Targets Row (Mission, Vision, Goals) */
+        /* Strategic Targets Row */
         .pillars-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -232,18 +240,22 @@
             color: #4a5568;
         }
 
-        /* --- SECTION 2: THE GOVERNANCE BOARD --- */
-        .board-bg {
+        /* --- GOVERNANCE STRUCTURE LAYOUT SYSTEMS --- */
+        .secretariat-bg {
             background-color: var(--card-white);
             border-top: 1px solid #e2e8f0;
             border-bottom: 1px solid #e2e8f0;
         }
 
+        .board-bg {
+            background-color: var(--light-bg);
+        }
+
         .leader-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         .leader-card {
@@ -252,11 +264,22 @@
             padding: 30px 20px;
             text-align: center;
             border: 1px solid #e2e8f0;
-            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .secretariat-bg .leader-card {
+            background-color: #fcfdfc;
+        }
+
+        .board-bg .leader-card {
+            background-color: var(--card-white);
         }
 
         .leader-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
         }
 
         .avatar-placeholder {
@@ -286,18 +309,29 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
         .leader-bio {
             font-size: 0.88rem;
             color: #4a5568;
+            text-align: justify;
         }
 
-        /* --- SECTION 3: PROGRAM INTERVENTIONS HUB --- */
+        .leader-email {
+            margin-top: auto;
+            padding-top: 15px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            color: var(--muted-gray);
+            word-break: break-all;
+        }
+
+        /* --- PROGRAM INTERVENTIONS HUB --- */
         .program-showcase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             margin-top: 40px;
         }
 
@@ -313,7 +347,7 @@
 
         .showcase-img-wrapper {
             width: 100%;
-            height: 200px;
+            height: 180px;
             background-color: #cbd5e1;
             overflow: hidden;
         }
@@ -325,7 +359,7 @@
         }
 
         .showcase-content {
-            padding: 25px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -333,27 +367,26 @@
 
         .showcase-content h3 {
             color: var(--forest-green);
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
         }
 
         .showcase-content p {
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             color: #4a5568;
             margin-bottom: 20px;
             flex-grow: 1;
         }
 
-        /* SIGNATURE BUTTON STYLING: GREEN OUTLINE PILL */
         .pill-outline-btn {
             display: inline-block;
             text-align: center;
             background-color: transparent;
             color: var(--dark-green);
             border: 2px solid var(--fresh-green);
-            padding: 10px 24px;
+            padding: 8px 20px;
             border-radius: 50px;
-            font-size: 0.88rem;
+            font-size: 0.82rem;
             font-weight: bold;
             text-decoration: none;
             text-transform: uppercase;
@@ -452,15 +485,17 @@
 
     <header class="sub-header">
         <h1>About Our Trust</h1>
-        <p>The history, visionaries, leadership, and operational frameworks driving sustainable community transformation across Malawi.</p>
+        <p>The operational team, strategic vision, and governance structures driving sustainable community transformation across Malawi.</p>
     </header>
 
     <main class="section-container">
-        <h2 class="section-title">Our Roots & History</h2>
+        <h2 class="section-title">About us</h2>
         <div class="foundation-grid">
             <div class="foundation-text">
-                <p>WASH International Trust was founded out of a direct need to rewrite how community development models operate in Malawi. Established as an independent non-profit entity, the Trust was designed to address the deep, intersecting gaps within rural health, severe water accessibility problems, and economic vulnerability.</p>
-                <p>Rather than relying on short-term external relief measures, the organization focused on structural, long-term engineering methods: creating deep-aquifer water installations, biosecure sanitation facilities, and localized village financial institutions that remain fully functional long after construction wrap-ups.</p>
+                <p>WASH INTERNATIONAL (WASHI), (TR/INC:7689) was registered in 2019 as a charity in Malawi. It is founded on the principle “Don’t Destroy the World, Preserve It: Genesis 2:15” and is working towards the global agenda of ending WASH poverty in Africa, building the resilience of communities and strengthening their self-supporting capacities.</p>
+                <p>WASHI seeks to improve community access to clean, safe drinking water and provide climate-smart irrigation technologies to economically empower women and youths in vulnerable communities. The demand for WASH and resilience building in rural communities is real. WASHI is a practical voice at the family level in strengthening the delivery of WASH services as a safety net against climatic shocks.</p>
+                <p>The Trust’s MaTech technologies can be easily maintained by local communities without any outside technical assistance using locally available materials and Geospatial information and Digital mapping in its programming to enhance decision making. The Trust will establish a WASH and Climate Change technologies innovation centre for the youth to showcase their creativity in developing low-cost, adaptive and easy to maintain technologies for peri-urban and rural Africa.</p>
+                <p>Benefit-Cost Analysis (BCA) is a constant throughout for such innovative interventions that will allow tens of thousands of families to be served with low cost and high impact WASH and Climate Smart Technologies whose return on investment can be easily measured. The WASHTECH innovations will continually be rigorously tested, documenting evidence to measure effectiveness and disseminate information for feedback and learning.</p>
             </div>
             
             <div class="founder-box">
@@ -476,62 +511,136 @@
         <div class="pillars-row">
             <div class="target-card">
                 <h3>Our Mission</h3>
-                <p>To engineer community-managed clean water configurations, structural sanitation assets, and self-sustaining village micro-capital pools that break cycles of poverty across rural hubs.</p>
+                <p>To increase WASH access and environmental resource management to strengthen resilience coping mechanisms and improve the quality of family life in rural and peri-urban areas regardless of religious affiliation, gender, ethnic and racial identity.</p>
             </div>
             <div class="target-card">
                 <h3>Our Vision</h3>
-                <p>A completely resilient Malawi where every village hub owns and runs its clean water, climate-smart agriculture networks, and secure financial security nets independently.</p>
+                <p>To see families and individuals have access to WASH and build resilience across vulnerable regions.</p>
             </div>
             <div class="target-card">
-                <h3>Strategic Goal</h3>
-                <p>To implement complete, data-tracked physical asset frameworks and environmental monitoring installations across target rural communities by building clear structural transparency.</p>
+                <h3>Core Values</h3>
+                <p>Our work is driven firmly by operational excellence grounded upon Equality and Respect, Family Care, Transparency and Accountability, Love and Justice, and Passionate Stewardship.</p>
             </div>
         </div>
     </main>
 
+    <section class="section-container secretariat-bg">
+        <h2 class="section-title">The Secretariat</h2>
+        <p class="section-subtitle">The executive management engine running our central operations, technology centers, and field programs across Malawi.</p>
+        
+        <div class="leader-grid">
+            <div class="leader-card">
+                <div class="avatar-placeholder">ED</div>
+                <h3>Panashe Maneya</h3>
+                <div class="leader-role">Executive Director</div>
+                <p class="leader-bio">Directs administrative operations, manages partnerships, oversees programmatic execution, and ensures general legal and financial compliance across the trust.</p>
+                <div class="leader-email">pmaneya@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">PM</div>
+                <h3>Kennie Mboma</h3>
+                <div class="leader-role">Program Manager</div>
+                <p class="leader-bio">Directs engineering applications, supervises the testing and rolling out of community technologies, schedules field timelines, and coordinates technical operations.</p>
+                <div class="leader-email">kmboma@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">ME</div>
+                <h3>Secretariat Staff</h3>
+                <div class="leader-role">M & E Officer</div>
+                <p class="leader-bio">Monitors performance indicators, gathers project assessment data, and tracks information on community programs and high-impact field setups.</p>
+                <div class="leader-email">monitoring@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">RM</div>
+                <h3>Secretariat Staff</h3>
+                <div class="leader-role">Resource Mobilisation & Dev. Officer</div>
+                <p class="leader-bio">Manages proposal designs, coordinates donor communications, and works to secure financing portfolios for environmental and clean water initiatives.</p>
+                <div class="leader-email">development@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">PO</div>
+                <h3>Secretariat Staff</h3>
+                <div class="leader-role">Project Officer</div>
+                <p class="leader-bio">Coordinates target site setups, handles community logistics, and manages execution workflows between the technology center and local project boards.</p>
+                <div class="leader-email">projects@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">FO</div>
+                <h3>Secretariat Staff</h3>
+                <div class="leader-role">Field Officers</div>
+                <p class="leader-bio">Facilitate grassroots community engagement, run local training workshops, and assist in establishing village-level self-reliance operations.</p>
+                <div class="leader-email">fieldops@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">FA</div>
+                <h3>Secretariat Staff</h3>
+                <div class="leader-role">Finance & Administration Manager</div>
+                <p class="leader-bio">Manages financial reporting, internal controls, corporate budgets, and general procurement accounts alongside office administration tasks.</p>
+                <div class="leader-email">admin@washinternationalmw.org</div>
+            </div>
+        </div>
+    </section>
+
     <section class="board-bg">
         <div class="section-container">
-            <h2 class="section-title">The Governance Board</h2>
+            <h2 class="section-title">Board of Trustees</h2>
+            <p class="section-subtitle">Our governing board providing strategic guidance, institutional policy directions, and financial accountability.</p>
+            
             <div class="leader-grid">
-                
                 <div class="leader-card">
-                    <div class="avatar-placeholder">SS</div>
-                    <h3>Panashe Maneya</h3>
-                    <div class="leader-role">Principal Officer</div>
-                    <p class="leader-bio">Manages regulatory legal compliance frameworks, state ministry partnerships, and institutional relations with international grantors.</p>
+                    <div class="avatar-placeholder">FM</div>
+                    <h3>Rev. Fr. Francis T. Matumba</h3>
+                    <div class="leader-role">Board Chairperson</div>
+                    <p class="leader-bio">African Director for Global Teams. Master's Degree in Diakonia and Christian Social Practice from VID Specialized University (Oslo, Norway, 2015), Bachelor's Degree in Social Work and Social Administration (2010), and a Diploma in Theology from Uganda Christian University (2008).</p>
+                    <div class="leader-email">revfratmatumba@gmail.com</div>
                 </div>
 
                 <div class="leader-card">
-                    <div class="avatar-placeholder">KM</div>
-                    <h3>Kennie Mboma</h3>
-                    <div class="leader-role">Project Lead</div>
-                    <p class="leader-bio">Oversees engineering deployments, rural asset logistics tracking, and project rollout schedules across the district fields.</p>
+                    <div class="avatar-placeholder">BS</div>
+                    <h3>Dr. Bertha Sefu</h3>
+                    <div class="leader-role">Vice Board Chairperson</div>
+                    <p class="leader-bio">Commissioner for Gender, Women's Rights and Corporate Services with over 20 years of experience in human rights and civic engagement. PhD from Columbia Commonwealth University and an MSc in Strategic Management from the University of Derby. Chairperson for Child Rights Directorate in the Malawi Human Rights Commission.</p>
+                    <div class="leader-email">bertha.sefu@gmail.com</div>
                 </div>
 
                 <div class="leader-card">
-                    <div class="avatar-placeholder">BT</div>
-                    <h3>Board Trustee</h3>
-                    <div class="leader-role">Finance & Oversight Committee</div>
-                    <p class="leader-bio">Directs internal accountability metrics, independent audits, and secure capital resource planning actions.</p>
+                    <div class="avatar-placeholder">MM</div>
+                    <h3>Mrs. Maggie Mzungu</h3>
+                    <div class="leader-role">Board Treasurer</div>
+                    <p class="leader-bio">Nutrition Lead for Feed the Future Malawi. Development practitioner with over 20 years of technical experience in livelihood development and nutrition networks. BSc in Agriculture and a Post Graduate Diploma in Agriculture Extension and Rural Development from the University of Malawi.</p>
+                    <div class="leader-email">maggie.mzungu@gmail.com</div>
                 </div>
 
                 <div class="leader-card">
-                    <div class="avatar-placeholder">TA</div>
-                    <h3>Technical Advisor</h3>
-                    <div class="leader-role">Engineering Advisory Board</div>
-                    <p class="leader-bio">Provides validation benchmarks on hydrological tracking layout accuracies and solar-mechanized pumping systems.</p>
+                    <div class="avatar-placeholder">HS</div>
+                    <h3>Haig Sawasawa</h3>
+                    <div class="leader-role">Programmes Chairperson</div>
+                    <p class="leader-bio">Agricultural consultant holding an MSc Degree in Geo-Information Science and Earth Observation (Sustainable Agriculture) from the University of Twente (ITC, 2003) and a BSc in Agriculture from LUANAR (1991). Over 15 years of experience in the application of Remote Sensing and GIS in Natural Resource Management and Agriculture.</p>
+                    <div class="leader-email">haigsawasawa@gmail.com</div>
                 </div>
 
+                <div class="leader-card">
+                    <div class="avatar-placeholder">CZ</div>
+                    <h3>Charles Zimunya</h3>
+                    <div class="leader-role">Trainer & Coach Chairperson</div>
+                    <p class="leader-bio">Certified John Maxwell team trainer, teacher, speaker, and coach. Over 30 years of experience as an educationist, marketer, and entrepreneur. Holds a Diploma in Education and a BA in Development Administration and English from the University of South Africa, focusing on sustainable development, community leadership, and local knowledge systems.</p>
+                    <div class="leader-email">charliedox599@gmail.com</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="section-container">
         <h2 class="section-title">Our Strategic Interventions</h2>
-        <p style="color: #4a5568; margin-top: 10px; max-width: 750px;">Explore the core operational activities we run. Click any pillar link below to open detailed structural frameworks and technical lists inside our central database folder.</p>
+        <p style="color: #4a5568; margin-top: 10px; max-width: 750px;">Explore the core operational activities we run. Click any pillar link below to see the specific frameworks and goals within our setup.</p>
         
         <div class="program-showcase-grid">
-    
             <div class="showcase-card">
                 <div class="showcase-img-wrapper">
                     <img src="images/pillar_water.jpg" alt="Safe Water Supply">
@@ -575,7 +684,6 @@
                     <a href="programs.html?p=4" class="pill-outline-btn">Learn More</a>
                 </div>
             </div>
-            
         </div>
     </section>
 
@@ -589,9 +697,9 @@
                 <h3>Quick Navigation</h3>
                 <ul>
                     <li><a href="index.html">Home Landing</a></li>
-                    <li><a href="about.html">About Us (Board)</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="programs.html">Programs & Pillars</a></li>
-                    <li><a href="support.html">Support Frameworks</a></li>
+                    <li><a href="support.html">Support Our Impact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -605,7 +713,7 @@
             <div class="footer-col">
                 <h3>Secretariat Coordinates</h3>
                 <p><strong>Headquarters:</strong> Airwing, Plot 179, Mthunzi Heritage, Lilongwe</p>
-                <p><strong>Postal Address:</strong> P.O. Box 3239, Lilongwe, Malawi</p>
+                <p><strong>Postal Address:</strong> P.O. Box 3239, Lilongwe 3, Malawi</p>
             </div>
         </div>
         <div class="footer-bottom">
