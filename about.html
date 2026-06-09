@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | WASH International Trust Malawi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --forest-green: #1b4332;
+            --dark-green: #2d6a4f;
+            --fresh-green: #52b788;
+            --light-bg: #f8faf8;
+            --card-white: #ffffff;
+            --text-dark: #1a202c;
+            --text-muted: #4a5568;
+            --border-light: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Professional Header & Navigation */
+        nav {
+            background-color: var(--forest-green);
+            color: white;
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            max-width: 75%;
+            z-index: 1010;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-img {
+            height: 44px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--fresh-green);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            padding: 8px 18px;
+            border: 1.5px solid var(--fresh-green);
+            background-color: transparent;
+            color: var(--fresh-green);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            z-index: 1010;
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: var(--fresh-green);
+            color: var(--forest-green);
+        }
+
+        /* Responsive Mobile Navigation Overlay Settings */
+        @media (max-width: 768px) {
+            nav {
+                padding: 14px 20px;
+            }
+
+            .brand-wrapper {
+                max-width: calc(100% - 110px);
+                gap: 10px;
+            }
+
+            .logo-img {
+                height: 36px;
+            }
+
+            .logo-text {
+                font-size: 0.85rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            /* HIGH-END DROPDOWN MENU OVERLAY SYSTEM */
+            .nav-links {
+                display: block;
+                position: absolute;
+                top: 53px;
+                left: -20px;
+                width: calc(100% + 40px);
+                background-color: var(--forest-green);
+                padding: 10px 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                gap: 0;
+                align-items: stretch;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+                
+                /* State-Driven Transitions */
+                opacity: 0;
+                transform: translateY(-10px);
+                pointer-events: none;
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+            }
+
+            .nav-links.show {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links li a {
+                display: block;
+                width: 100%;
+                padding: 16px 32px;
+                font-size: 1rem;
+                color: #e2e8f0;
+                font-weight: 600;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.2s ease;
+                border-left: 0px solid var(--fresh-green);
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: none;
+            }
+
+            .nav-links li a:hover, .nav-links li a.active {
+                color: var(--fresh-green);
+                background-color: rgba(255, 255, 255, 0.03);
+                border-left: 4px solid var(--fresh-green);
+                padding-left: 36px;
+            }
+        }
+
+        /* ==========================================================================
+           ABOUT CONTENT CORE LAYOUTS
+           ========================================================================= */
+        .sub-header {
+            background-color: var(--forest-green);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .sub-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .sub-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #cbd5e1;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            color: var(--forest-green);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--fresh-green);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .foundation-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .foundation-text p {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            text-align: justify;
+            color: var(--text-dark);
+        }
+
+        .founder-box {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .founder-img-frame {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            margin: 0 auto 20px auto;
+            border: 4px solid var(--fresh-green);
+            overflow: hidden;
+        }
+
+        .founder-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-box h3 {
+            color: var(--forest-green);
+            font-size: 1.35rem;
+            margin-bottom: 4px;
+        }
+
+        .founder-title {
+            color: var(--fresh-green);
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .founder-quote {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .pillars-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .target-card {
+            background-color: var(--card-white);
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 4px solid var(--dark-green);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .target-card h3 {
+            color: var(--forest-green);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .target-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .secretariat-bg {
+            background-color: var(--card-white);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .board-bg {
+            background-color: var(--light-bg);
+        }
+
+        .leader-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .leader-card {
+            background-color: var(--light-bg);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .secretariat-bg .leader-card {
+            background-color: #fcfdfc;
+        }
+
+        .board-bg .leader-card {
+            background-color: var(--card-white);
+        }
+
+        .leader-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+        }
+
+        .avatar-placeholder {
+            width: 100px;
+            height: 100px;
+            background-color: var(--dark-green);
+            color: white;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            border: 3px solid var(--fresh-green);
+        }
+
+        .leader-card h3 {
+            color: var(--forest-green);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .leader-role {
+            color: var(--fresh-green);
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .leader-bio {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .leader-email {
+            margin-top: auto;
+            padding-top: 15px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            color: var(--text-muted);
+            word-break: break-all;
+        }
+
+        .program-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .showcase-card {
+            background-color: var(--card-white);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .showcase-img-wrapper {
+            width: 100%;
+            height: 180px;
+            background-color: #cbd5e1;
+            overflow: hidden;
+        }
+
+        .showcase-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .showcase-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .showcase-content h3 {
+            color: var(--forest-green);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .showcase-content p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        /* Standarized Action Buttons to match Master Template */
+        .pill-outline-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+            background-color: transparent;
+            color: var(--dark-green);
+            border: 1.5px solid var(--fresh-green);
+            text-transform: uppercase;
+            width: fit-content;
+        }
+
+        .pill-outline-btn:hover {
+            background-color: var(--fresh-green);
+            color: var(--forest-green);
+            box-shadow: none;
+        }
+
+        /* Footer Alignment Breakpoint Settings */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .foundation-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="brand-wrapper">
+                <img src="images/logo.png" alt="WASH Trust Logo" class="logo-img">
+                <div class="logo-text">WASH International<br>Trust Malawi</div>
+            </a>
+            <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">Menu</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+                <li><a href="about.html" class="active" onclick="toggleMenu()">About Us</a></li>
+                <li><a href="programs.html" onclick="toggleMenu()">Programs & Pillars</a></li>
+                <li><a href="support.html" onclick="toggleMenu()">Support Our Impact</a></li>
+               <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="sub-header">
+        <h1>About WASH International Trust Malawi</h1>
+        <p>The operational team, strategic vision, and governance structures driving sustainable community transformation across Malawi.</p>
+    </header>
+
+    <main class="section-container">
+        <h2 class="section-title">About us</h2>
+        <div class="foundation-grid">
+            <div class="foundation-text">
+                <p>WASH INTERNATIONAL TRUST (WASHI), (TR/INC:7689) was registered in 2019 as a charity in Malawi. It is founded on the principle “Don’t Destroy the World, Preserve It: Genesis 2:15” and is working towards the global agenda of ending WASH poverty in Africa, building the resilience of communities and strengthening their self-supporting capacities.</p>
+                <p>WASHI seeks to improve community access to clean, safe drinking water and provide climate-smart irrigation technologies to economically empower women and youths in vulnerable communities. The demand for WASH and resilience building in rural communities is real. WASHI is a practical voice at the family level in strengthening the delivery of WASH services as a safety net against climatic shocks.</p>
+                <p>The Trust’s MaTech technologies can be easily maintained by local communities without any outside technical assistance using locally available materials and Geospatial information and Digital mapping in its programming to enhance decision making. The Trust will establish a WASH and Climate Change technologies innovation centre for the youth to showcase their creativity in developing low-cost, adaptive and easy to maintain technologies for peri-urban and rural Africa.</p>
+                <p>Benefit-Cost Analysis (BCA) is a constant throughout for such innovative interventions that will allow tens of thousands of families to be served with low cost and high impact WASH and Climate Smart Technologies whose return on investment can be easily measured. The WASHTECH innovations will continually be rigorously tested, documenting evidence to measure effectiveness and disseminate information for feedback and learning.</p>
+            </div>
+            <div class="founder-box">
+                <div class="founder-img-frame">
+                    <img src="images/founder.jpg" alt="Founder of WASH International">
+                </div>
+                <h3>Founder & Visionary</h3>
+                <div class="founder-title">WASH International Trust Malawi</div>
+                <p class="founder-quote">"True development means building capacity that outlasts us, handing absolute asset control and economic tools straight to communities."</p>
+            </div>
+        </div>
+
+        <div class="pillars-row">
+            <div class="target-card">
+                <h3>Our Mission</h3>
+                <p>To increase WASH access and environmental resource management to strengthen resilience coping mechanisms and improve the quality of family life in rural and peri-urban areas regardless of religious affiliation, gender, ethnic and racial identity.</p>
+            </div>
+            <div class="target-card">
+                <h3>Our Vision</h3>
+                <p>To see families and individuals have access to WASH and build resilience across vulnerable regions.</p>
+            </div>
+            <div class="target-card">
+                <h3>Core Values</h3>
+                <p>Our work is driven firmly by operational excellence grounded upon Equality and Respect, Family Care, Transparency and Accountability, Love and Justice, and Passionate Stewardship.</p>
+            </div>
+        </div>
+    </main>
+
+    <section class="section-container secretariat-bg">
+        <h2 class="section-title">The Secretariat</h2>
+        <p class="section-subtitle">The executive management engine running our central operations, technology centers, and field programs across Malawi.</p>
+        <div class="leader-grid">
+            <div class="leader-card">
+                <div class="avatar-placeholder">ED</div>
+                <h3>Panashe Maneya</h3>
+                <div class="leader-role">Executive Director</div>
+                <p class="leader-bio">Directs administrative operations, manages partnerships, oversees programmatic execution, and ensures general legal and financial compliance across the trust.</p>
+                <div class="leader-email">pmaneya@washinternationalmw.org</div>
+            </div>
+            <div class="leader-card">
+                <div class="avatar-placeholder">PM</div>
+                <h3>Kennie Mboma</h3>
+                <div class="leader-role">Program Manager</div>
+                <p class="leader-bio">Directs engineering applications, supervises the testing and rolling out of community technologies, schedules field timelines, and coordinates technical operations.</p>
+                <div class="leader-email">kmboma@washinternationalmw.org</div>
+            </div>
+            <div class="leader-card">
+                <div class="avatar-placeholder">ME</div>
+                <h3>SECRETARIAT</h3>
+                <div class="leader-role">M & E Officer</div>
+                <p class="leader-bio">Monitors performance indicators, gathers project assessment data, and tracks information on community programs and high-impact field setups.</p>
+                <div class="leader-email">info@washinternationalmw.org</div>
+            </div>
+        </div>
+    </section>
+
+  <footer>
+        <style>
+            /* Core Footer Layout Fixes */
+            footer {
+                background-color: var(--forest-green);
+                color: #cbd5e1;
+                padding: 60px 20px 20px 20px;
+                margin-top: 60px;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .footer-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+                max-width: 1200px;
+                margin: 0 auto 40px auto;
+            }
+
+            .footer-col h3 {
+                color: white;
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+                font-weight: 600;
+                position: relative;
+            }
+
+            .footer-col p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 12px;
+            }
+
+            .footer-col ul {
+                list-style: none;
+            }
+
+            .footer-col ul li {
+                margin-bottom: 10px;
+            }
+
+            .footer-col ul li a {
+                color: #cbd5e1;
+                text-decoration: none;
+                font-size: 0.9rem;
+                transition: color 0.2s ease;
+            }
+
+            .footer-col ul li a:hover {
+                color: var(--fresh-green);
+            }
+
+            .footer-bottom {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-top: 24px;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 16px;
+                font-size: 0.88rem;
+            }
+
+            .social-icons-wrapper {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+            }
+
+            .social-icon-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.05);
+                transition: all 0.2s ease;
+            }
+
+            .social-icon-link svg {
+                width: 18px;
+                height: 18px;
+                fill: #cbd5e1;
+                transition: fill 0.2s ease;
+            }
+
+            .social-icon-link:hover {
+                background-color: var(--fresh-green);
+            }
+
+            .social-icon-link:hover svg {
+                fill: var(--forest-green);
+            }
+
+            @media (max-width: 768px) {
+                .footer-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 30px;
+                }
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
+
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>WASH International Trust</h3>
+                <p>A registered Malawian charitable trust dedicated to scaling clean water assets, sanitation safety structures, and robust climate adaptive solutions.</p>
+                <p>Preserve & Build Resilience.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Resource Links</h3>
+                <ul>
+                    <li><a href="index.html">Home Dashboard</a></li>
+                    <li><a href="about.html">About Operational Structure</a></li>
+                    <li><a href="programs.html">Programs & Core Pillars</a></li>
+                    <li><a href="support.html">Support Our Impact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Strategic Pillars</h3>
+                <ul>
+                    <li><a href="programs.html">Water Supply Assets</a></li>
+                    <li><a href="programs.html">Sanitation Security</a></li>
+                    <li><a href="programs.html">Climate Smart Tech</a></li>
+                    <li><a href="programs.html">Youth Innovation Hubs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Central Contacts</h3>
+                <p>Blantyre Executive Secretariat Office, Malawi</p>
+                <p>Email: info@washinternationalmw.org</p>
+                <p>Phone: +265 (0) 993 424 233</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 WASH International Trust Malawi. All Rights Reserved. Built with Integrity.</p>
+            <div class="social-icons-wrapper">
+                <a href="mailto:info@washinternationalmw.org" class="social-icon-link" title="Send Email">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-icon-link" title="Follow on Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"/></svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-icon-link" title="Connect on LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.015-.51.09-.69a1.14 1.14 0 0 1 1-.77c.75 0 1 .56 1 1.39v4.74h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5V18.5H8z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            
+            navLinks.classList.toggle('show');
+            
+            if (navLinks.classList.contains('show')) {
+                menuBtn.textContent = 'Close';
+            } else {
+                menuBtn.textContent = 'Menu';
+            }
+        }
+    </script>
+</body>
+</html>
