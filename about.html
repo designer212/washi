@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | WASH International Trust Malawi</title>
+    <title>About Us | WASH International Trust</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --forest-green: #1b4332;
             --dark-green: #2d6a4f;
             --fresh-green: #52b788;
-            --light-bg: #f8faf8;
+            --light-bg: #f4f9f4;
+            --text-dark: #2d3748;
+            --muted-gray: #718096;
             --card-white: #ffffff;
-            --text-dark: #1a202c;
-            --text-muted: #4a5568;
             --border-light: #e2e8f0;
         }
 
@@ -31,7 +31,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Professional Header & Navigation */
+        /* Professional Header & Navigation (Perfectly matched to index.html style and logic) */
         nav {
             background-color: var(--forest-green);
             color: white;
@@ -58,8 +58,6 @@
             gap: 14px;
             max-width: 75%;
             z-index: 1010;
-            text-decoration: none;
-            color: white;
         }
 
         .logo-img {
@@ -119,87 +117,7 @@
             color: var(--forest-green);
         }
 
-        /* Responsive Mobile Navigation Overlay Settings */
-        @media (max-width: 768px) {
-            nav {
-                padding: 14px 20px;
-            }
-
-            .brand-wrapper {
-                max-width: calc(100% - 110px);
-                gap: 10px;
-            }
-
-            .logo-img {
-                height: 36px;
-            }
-
-            .logo-text {
-                font-size: 0.85rem;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            /* HIGH-END DROPDOWN MENU OVERLAY SYSTEM */
-            .nav-links {
-                display: block;
-                position: absolute;
-                top: 53px;
-                left: -20px;
-                width: calc(100% + 40px);
-                background-color: var(--forest-green);
-                padding: 10px 0;
-                border-top: 1px solid rgba(255, 255, 255, 0.08);
-                gap: 0;
-                align-items: stretch;
-                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-                
-                /* State-Driven Transitions */
-                opacity: 0;
-                transform: translateY(-10px);
-                pointer-events: none;
-                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
-            }
-
-            .nav-links.show {
-                opacity: 1;
-                transform: translateY(0);
-                pointer-events: auto;
-            }
-
-            .nav-links li {
-                width: 100%;
-            }
-
-            .nav-links li a {
-                display: block;
-                width: 100%;
-                padding: 16px 32px;
-                font-size: 1rem;
-                color: #e2e8f0;
-                font-weight: 600;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                transition: all 0.2s ease;
-                border-left: 0px solid var(--fresh-green);
-            }
-
-            .nav-links li:last-child a {
-                border-bottom: none;
-            }
-
-            .nav-links li a:hover, .nav-links li a.active {
-                color: var(--fresh-green);
-                background-color: rgba(255, 255, 255, 0.03);
-                border-left: 4px solid var(--fresh-green);
-                padding-left: 36px;
-            }
-        }
-
-        /* ==========================================================================
-           ABOUT CONTENT CORE LAYOUTS
-           ========================================================================= */
+        /* Page Banner */
         .sub-header {
             background-color: var(--forest-green);
             color: white;
@@ -219,6 +137,7 @@
             color: #cbd5e1;
         }
 
+        /* Section Global Standards */
         .section-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -244,12 +163,13 @@
         }
 
         .section-subtitle {
-            color: var(--text-muted);
+            color: var(--muted-gray);
             font-size: 1.1rem;
             margin-bottom: 30px;
             max-width: 800px;
         }
 
+        /* --- TRUST FOUNDATION & IDENTITY --- */
         .foundation-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -265,6 +185,7 @@
             color: var(--text-dark);
         }
 
+        /* Founder Display Profile */
         .founder-box {
             background-color: var(--card-white);
             border-radius: 16px;
@@ -312,6 +233,7 @@
             line-height: 1.5;
         }
 
+        /* Strategic Targets Row */
         .pillars-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -335,9 +257,10 @@
 
         .target-card p {
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: #4a5568;
         }
 
+        /* --- GOVERNANCE STRUCTURE LAYOUT SYSTEMS --- */
         .secretariat-bg {
             background-color: var(--card-white);
             border-top: 1px solid var(--border-light);
@@ -411,7 +334,7 @@
 
         .leader-bio {
             font-size: 0.88rem;
-            color: var(--text-muted);
+            color: #4a5568;
             text-align: justify;
         }
 
@@ -420,10 +343,11 @@
             padding-top: 15px;
             font-size: 0.82rem;
             font-weight: bold;
-            color: var(--text-muted);
+            color: var(--muted-gray);
             word-break: break-all;
         }
 
+        /* --- PROGRAM INTERVENTIONS HUB --- */
         .program-showcase-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -469,36 +393,116 @@
 
         .showcase-content p {
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: #4a5568;
             margin-bottom: 20px;
             flex-grow: 1;
         }
 
-        /* Standarized Action Buttons to match Master Template */
         .pill-outline-btn {
             display: inline-block;
-            padding: 12px 28px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-            cursor: pointer;
             text-align: center;
             background-color: transparent;
             color: var(--dark-green);
-            border: 1.5px solid var(--fresh-green);
+            border: 2px solid var(--fresh-green);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            text-decoration: none;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
             width: fit-content;
         }
 
         .pill-outline-btn:hover {
             background-color: var(--fresh-green);
-            color: var(--forest-green);
-            box-shadow: none;
+            color: white;
+            box-shadow: 0 4px 12px rgba(82, 183, 136, 0.2);
         }
 
-        /* Footer Alignment Breakpoint Settings */
+        /* Footer System */
+        footer {
+            background-color: var(--forest-green);
+            color: #f7fafc;
+            padding: 80px 24px 40px 24px;
+            border-top: 4px solid var(--dark-green);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .footer-col p {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--fresh-green);
+        }
+
+        /* Social Links styling */
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social-links a {
+            color: #cbd5e1;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--fresh-green);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.88rem;
+            color: #94a3b8;
+        }
+
         @media (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
@@ -507,27 +511,112 @@
         }
 
         @media (max-width: 850px) {
-            .foundation-grid {
+            .foundation-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 14px 20px;
+            }
+
+            .brand-wrapper {
+                max-width: calc(100% - 110px);
+                gap: 10px;
+            }
+
+            .logo-img {
+                height: 36px;
+            }
+
+            .logo-text {
+                font-size: 0.85rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            /* PREMIUM OVERLAY DROPDOWN MENU SYSTEM (Perfected from index.html) */
+            .nav-links {
+                display: block;
+                position: absolute;
+                top: 53px;
+                left: -20px;
+                width: calc(100% + 40px);
+                background-color: var(--forest-green);
+                padding: 10px 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                gap: 0;
+                align-items: stretch;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+                
+                /* Menu Fluid Animations */
+                opacity: 0;
+                transform: translateY(-10px);
+                pointer-events: none;
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+            }
+
+            .nav-links.show {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links li a {
+                display: block;
+                width: 100%;
+                padding: 16px 32px;
+                font-size: 1rem;
+                color: #e2e8f0;
+                font-weight: 600;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                transition: all 0.2s ease;
+                border-left: 0px solid var(--fresh-green);
+            }
+
+            .nav-links li:last-child a {
+                border-bottom: none;
+            }
+
+            .nav-links li a:hover, .nav-links li a.active {
+                color: var(--fresh-green);
+                background-color: rgba(255, 255, 255, 0.03);
+                border-left: 4px solid var(--fresh-green);
+                padding-left: 36px;
+            }
+
+            .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
+
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="brand-wrapper">
+            <div class="brand-wrapper">
                 <img src="images/logo.png" alt="WASH Trust Logo" class="logo-img">
                 <div class="logo-text">WASH International<br>Trust Malawi</div>
-            </a>
+            </div>
             <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">Menu</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
                 <li><a href="about.html" class="active" onclick="toggleMenu()">About Us</a></li>
                 <li><a href="programs.html" onclick="toggleMenu()">Programs & Pillars</a></li>
                 <li><a href="support.html" onclick="toggleMenu()">Support Our Impact</a></li>
-               <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
+                <li><a href="contact.html" onclick="toggleMenu()">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -546,6 +635,7 @@
                 <p>The Trust’s MaTech technologies can be easily maintained by local communities without any outside technical assistance using locally available materials and Geospatial information and Digital mapping in its programming to enhance decision making. The Trust will establish a WASH and Climate Change technologies innovation centre for the youth to showcase their creativity in developing low-cost, adaptive and easy to maintain technologies for peri-urban and rural Africa.</p>
                 <p>Benefit-Cost Analysis (BCA) is a constant throughout for such innovative interventions that will allow tens of thousands of families to be served with low cost and high impact WASH and Climate Smart Technologies whose return on investment can be easily measured. The WASHTECH innovations will continually be rigorously tested, documenting evidence to measure effectiveness and disseminate information for feedback and learning.</p>
             </div>
+            
             <div class="founder-box">
                 <div class="founder-img-frame">
                     <img src="images/founder.jpg" alt="Founder of WASH International">
@@ -575,6 +665,7 @@
     <section class="section-container secretariat-bg">
         <h2 class="section-title">The Secretariat</h2>
         <p class="section-subtitle">The executive management engine running our central operations, technology centers, and field programs across Malawi.</p>
+        
         <div class="leader-grid">
             <div class="leader-card">
                 <div class="avatar-placeholder">ED</div>
@@ -583,6 +674,7 @@
                 <p class="leader-bio">Directs administrative operations, manages partnerships, oversees programmatic execution, and ensures general legal and financial compliance across the trust.</p>
                 <div class="leader-email">pmaneya@washinternationalmw.org</div>
             </div>
+
             <div class="leader-card">
                 <div class="avatar-placeholder">PM</div>
                 <h3>Kennie Mboma</h3>
@@ -590,169 +682,188 @@
                 <p class="leader-bio">Directs engineering applications, supervises the testing and rolling out of community technologies, schedules field timelines, and coordinates technical operations.</p>
                 <div class="leader-email">kmboma@washinternationalmw.org</div>
             </div>
+
             <div class="leader-card">
                 <div class="avatar-placeholder">ME</div>
                 <h3>SECRETARIAT</h3>
                 <div class="leader-role">M & E Officer</div>
                 <p class="leader-bio">Monitors performance indicators, gathers project assessment data, and tracks information on community programs and high-impact field setups.</p>
-                <div class="leader-email">info@washinternationalmw.org</div>
+                <div class="leader-email">monitoring@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">RM</div>
+                <h3>SECRETARIAT</h3>
+                <div class="leader-role">Resource Mobilisation & Dev. Officer</div>
+                <p class="leader-bio">Manages proposal designs, coordinates donor communications, and works to secure financing portfolios for environmental and clean water initiatives.</p>
+                <div class="leader-email">development@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">PO</div>
+                <h3>SECRETARIAT</h3>
+                <div class="leader-role">Project Officer</div>
+                <p class="leader-bio">Coordinates target site setups, handles community logistics, and manages execution workflows between the technology center and local project boards.</p>
+                <div class="leader-email">projects@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">FO</div>
+                <h3>SECRETARIAT</h3>
+                <div class="leader-role">Field Officers</div>
+                <p class="leader-bio">Facilitate grassroots community engagement, run local training workshops, and assist in establishing village-level self-reliance operations.</p>
+                <div class="leader-email">fieldops@washinternationalmw.org</div>
+            </div>
+
+            <div class="leader-card">
+                <div class="avatar-placeholder">FA</div>
+                <h3>SECRETARIAT</h3>
+                <div class="leader-role">Finance & Administration Manager</div>
+                <p class="leader-bio">Manages financial reporting, internal controls, corporate budgets, and general procurement accounts alongside office administration tasks.</p>
+                <div class="leader-email">admin@washinternationalmw.org</div>
             </div>
         </div>
     </section>
 
-  <footer>
-        <style>
-            /* Core Footer Layout Fixes */
-            footer {
-                background-color: var(--forest-green);
-                color: #cbd5e1;
-                padding: 60px 20px 20px 20px;
-                margin-top: 60px;
-                border-top: 1px solid rgba(255, 255, 255, 0.08);
-            }
+    <section class="board-bg">
+        <div class="section-container">
+            <h2 class="section-title">Board of Trustees</h2>
+            <p class="section-subtitle">Our governing board providing strategic guidance, institutional policy directions, and financial accountability.</p>
+            
+            <div class="leader-grid">
+                <div class="leader-card">
+                    <div class="avatar-placeholder">FM</div>
+                    <h3>Rev. Fr. Francis T. Matumba</h3>
+                    <div class="leader-role">Board Chairperson</div>
+                    <p class="leader-bio">African Director for Global Teams. Master's Degree in Diakonia and Christian Social Practice from VID Specialized University (Oslo, Norway, 2015), Bachelor's Degree in Social Work and Social Administration (2010), and a Diploma in Theology from Uganda Christian University (2008).</p>
+                    <div class="leader-email">revfratmatumba@gmail.com</div>
+                </div>
 
-            .footer-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 30px;
-                max-width: 1200px;
-                margin: 0 auto 40px auto;
-            }
+                <div class="leader-card">
+                    <div class="avatar-placeholder">BS</div>
+                    <h3>Dr. Bertha Sefu</h3>
+                    <div class="leader-role">Vice Board Chairperson</div>
+                    <p class="leader-bio">Commissioner for Gender, Women's Rights and Corporate Services with over 20 years of experience in human rights and civic engagement. PhD from Columbia Commonwealth University and an MSc in Strategic Management from the University of Derby. Chairperson for Child Rights Directorate in the Malawi Human Rights Commission.</p>
+                    <div class="leader-email">bertha.sefu@gmail.com</div>
+                </div>
 
-            .footer-col h3 {
-                color: white;
-                font-size: 1.1rem;
-                margin-bottom: 20px;
-                font-weight: 600;
-                position: relative;
-            }
+                <div class="leader-card">
+                    <div class="avatar-placeholder">MM</div>
+                    <h3>Mrs. Maggie Mzungu</h3>
+                    <div class="leader-role">Board Treasurer</div>
+                    <p class="leader-bio">Nutrition Lead for Feed the Future Malawi. Development practitioner with over 20 years of technical experience in livelihood development and nutrition networks. BSc in Agriculture and a Post Graduate Diploma in Agriculture Extension and Rural Development from the University of Malawi.</p>
+                    <div class="leader-email">maggie.mzungu@gmail.com</div>
+                </div>
 
-            .footer-col p {
-                font-size: 0.9rem;
-                line-height: 1.6;
-                margin-bottom: 12px;
-            }
+                <div class="leader-card">
+                    <div class="avatar-placeholder">HS</div>
+                    <h3>Haig Sawasawa</h3>
+                    <div class="leader-role">Programmes Chairperson</div>
+                    <p class="leader-bio">Agricultural consultant holding an MSc Degree in Geo-Information Science and Earth Observation (Sustainable Agriculture) from the University of Twente (ITC, 2003) and a BSc in Agriculture from LUANAR (1991). Over 15 years of experience in the application of Remote Sensing and GIS in Natural Resource Management and Agriculture.</p>
+                    <div class="leader-email">haigsawasawa@gmail.com</div>
+                </div>
 
-            .footer-col ul {
-                list-style: none;
-            }
+                <div class="leader-card">
+                    <div class="avatar-placeholder">CZ</div>
+                    <h3>Charles Zimunya</h3>
+                    <div class="leader-role">Trainer & Coach Chairperson</div>
+                    <p class="leader-bio">Certified John Maxwell team trainer, teacher, speaker, and coach. Over 30 years of experience as an educationist, marketer, and entrepreneur. Holds a Diploma in Education and a BA in Development Administration and English from the University of South Africa, focusing on sustainable development, community leadership, and local knowledge systems.</p>
+                    <div class="leader-email">charliedox599@gmail.com</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            .footer-col ul li {
-                margin-bottom: 10px;
-            }
+    <section class="section-container">
+        <h2 class="section-title">Our Strategic Interventions</h2>
+        <p style="color: #4a5568; margin-top: 10px; max-width: 750px;">Explore the core operational activities we run. Click any pillar link below to see the specific frameworks and goals within our setup.</p>
+        
+        <div class="program-showcase-grid">
+            <div class="showcase-card">
+                <div class="showcase-img-wrapper">
+                    <img src="images/pillar_water.jpg" alt="Safe Water Supply">
+                </div>
+                <div class="showcase-content">
+                    <h3>Water Supply & Hygiene</h3>
+                    <p>Engineering long-term clean water extractions via deep aquifer boreholes and community management frameworks.</p>
+                    <a href="programs.html?p=1" class="pill-outline-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="showcase-card">
+                <div class="showcase-img-wrapper">
+                    <img src="images/pillar_irrigation.jpg" alt="Small-Scale Irrigation">
+                </div>
+                <div class="showcase-content">
+                    <h3>Small-Scale Irrigation</h3>
+                    <p>Deploying specialized water pumping mechanics to back smallholder youth farming collectives through dry seasonal phases.</p>
+                    <a href="programs.html?p=2" class="pill-outline-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="showcase-card">
+                <div class="showcase-img-wrapper">
+                    <img src="images/pillar3_1.jpg" alt="Women Financial Empowerment">
+                </div>
+                <div class="showcase-content">
+                    <h3>Women Economic Empowerment</h3>
+                    <p>Setting up secure accounting bookkeeping modules and structural local village savings banks (VSLAs) for rural mothers.</p>
+                    <a href="programs.html?p=3" class="pill-outline-btn">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="showcase-card">
+                <div class="showcase-img-wrapper">
+                    <img src="images/pillar_sanitation.jpg" alt="Improved Sanitation">
+                </div>
+                <div class="showcase-content">
+                    <h3>Ventilated Improved Sanitation</h3>
+                    <p>Building high-efficiency Ventilated Improved Pit (VIP) facilities to protect regional public sanitation systems cleanly.</p>
+                    <a href="programs.html?p=4" class="pill-outline-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            .footer-col ul li a {
-                color: #cbd5e1;
-                text-decoration: none;
-                font-size: 0.9rem;
-                transition: color 0.2s ease;
-            }
-
-            .footer-col ul li a:hover {
-                color: var(--fresh-green);
-            }
-
-            .footer-bottom {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding-top: 24px;
-                border-top: 1px solid rgba(255, 255, 255, 0.08);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 16px;
-                font-size: 0.88rem;
-            }
-
-            .social-icons-wrapper {
-                display: flex;
-                gap: 16px;
-                align-items: center;
-            }
-
-            .social-icon-link {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                background-color: rgba(255, 255, 255, 0.05);
-                transition: all 0.2s ease;
-            }
-
-            .social-icon-link svg {
-                width: 18px;
-                height: 18px;
-                fill: #cbd5e1;
-                transition: fill 0.2s ease;
-            }
-
-            .social-icon-link:hover {
-                background-color: var(--fresh-green);
-            }
-
-            .social-icon-link:hover svg {
-                fill: var(--forest-green);
-            }
-
-            @media (max-width: 768px) {
-                .footer-grid {
-                    grid-template-columns: 1fr !important;
-                    gap: 30px;
-                }
-                .footer-bottom {
-                    flex-direction: column;
-                    text-align: center;
-                }
-            }
-        </style>
-
+    <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h3>WASH International Trust</h3>
-                <p>A registered Malawian charitable trust dedicated to scaling clean water assets, sanitation safety structures, and robust climate adaptive solutions.</p>
-                <p>Preserve & Build Resilience.</p>
+                <h3 style="color: white;">WASH International Trust Malawi</h3>
+                <p style="margin-top: 15px;">A registered non-profit development trust deploying community-managed asset structures, economic safety blankets, and climate-smart technologies across Malawi hubs.</p>
             </div>
             <div class="footer-col">
-                <h3>Quick Resource Links</h3>
+                <h3>Quick Navigation</h3>
                 <ul>
-                    <li><a href="index.html">Home Dashboard</a></li>
-                    <li><a href="about.html">About Operational Structure</a></li>
-                    <li><a href="programs.html">Programs & Core Pillars</a></li>
+                    <li><a href="index.html">Home Landing</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs & Pillars</a></li>
                     <li><a href="support.html">Support Our Impact</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Strategic Pillars</h3>
+                <h3>Core Interventions</h3>
                 <ul>
-                    <li><a href="programs.html">Water Supply Assets</a></li>
-                    <li><a href="programs.html">Sanitation Security</a></li>
-                    <li><a href="programs.html">Climate Smart Tech</a></li>
-                    <li><a href="programs.html">Youth Innovation Hubs</a></li>
+                    <li><a href="programs.html?p=1">Water & Hygiene Services</a></li>
+                    <li><a href="programs.html?p=2">Small-Scale Irrigation</a></li>
+                    <li><a href="programs.html?p=3">Improved Sanitation</a></li>
+                    <li><a href="programs.html?p=4">Climate Justice Knowledge</a></li>
+                    <li><a href="programs.html?p=5">Geospatial Info & Mapping</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Central Contacts</h3>
-                <p>Blantyre Executive Secretariat Office, Malawi</p>
-                <p>Email: info@washinternationalmw.org</p>
-                <p>Phone: +265 (0) 993 424 233</p>
+                <h3>Secretariat Coordinates</h3>
+                <p><strong>Headquarters:</strong> Airwing, Plot 179, Mthunzi Heritage, Lilongwe</p>
+                <p><strong>Postal Address:</strong> P.O. Box 3239, Lilongwe 3, Malawi</p>
+                <div class="footer-social-links">
+                    <a href="mailto:maniamafe@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/WASHInternationalTrust" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 WASH International Trust Malawi. All Rights Reserved. Built with Integrity.</p>
-            <div class="social-icons-wrapper">
-                <a href="mailto:info@washinternationalmw.org" class="social-icon-link" title="Send Email">
-                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                </a>
-                <a href="https://facebook.com" target="_blank" class="social-icon-link" title="Follow on Facebook">
-                    <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"/></svg>
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="social-icon-link" title="Connect on LinkedIn">
-                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.015-.51.09-.69a1.14 1.14 0 0 1 1-.77c.75 0 1 .56 1 1.39v4.74h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5V18.5H8z"/></svg>
-                </a>
-            </div>
+            <div>&copy; 2026 WASH International Trust. All Rights Reserved.</div>
         </div>
     </footer>
 
@@ -761,12 +872,13 @@
             const navLinks = document.getElementById('navLinks');
             const menuBtn = document.getElementById('menuBtn');
             
-            navLinks.classList.toggle('show');
-            
-            if (navLinks.classList.contains('show')) {
-                menuBtn.textContent = 'Close';
-            } else {
-                menuBtn.textContent = 'Menu';
+            if (window.innerWidth <= 768) {
+                navLinks.classList.toggle('show');
+                if (navLinks.classList.contains('show')) {
+                    menuBtn.innerText = "Close";
+                } else {
+                    menuBtn.innerText = "Menu";
+                }
             }
         }
     </script>
