@@ -365,6 +365,57 @@
             line-height: 1.55;
         }
 
+        /* Video Showcase Layout System */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .video-card {
+            background-color: var(--card-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-light);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            background-color: #000;
+        }
+
+        .video-wrapper video,
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 24px;
+        }
+
+        .video-info h3 {
+            color: var(--forest-green);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .video-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
         /* Institutional Integrity Section */
         .values-banner {
             background-color: var(--forest-green);
@@ -599,6 +650,7 @@
         @media (max-width: 1024px) {
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
             .values-banner { grid-template-columns: 1fr; gap: 30px; }
+            .media-grid { grid-template-columns: 1fr; gap: 25px; }
         }
 
         @media (max-width: 768px) {
@@ -848,6 +900,36 @@
         </div>
     </section>
 
+<section class="video-showcase-section" style="margin: 90px 0;">
+    <div class="section-header">
+        <span>Field Operations</span>
+        <h2>Our Impact in Motion</h2>
+        <p>Watch how clean water supply installations and strategic resource distribution directly support communities across rural Malawi districts.</p>
+    </div>
+    
+    <div class="media-grid">
+        <div class="video-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/qxpM8imgLho" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3>Community Water Asset Deployments</h3>
+                <p>Documenting clean pump access initialization and committee handovers within regional development catchments.</p>
+            </div>
+        </div>
+        
+        <div class="video-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/xg7maUfCjF0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-info">
+                <h3>WASH Field Interventions Showcase</h3>
+                <p>Highlighting ongoing sustainability monitoring, hygiene resource mapping, and localized community engagement workflows.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
     <div class="cta-callout" id="support">
         <h3>Support Our Community Impact</h3>
         <p>We actively collaborate towards the global agenda of ending deep structural WASH poverty by expanding community self-supporting systems. We welcome international grantors, bilateral partners, local consortiums, and technical foundations to back our low-cost, adaptive asset installations across rural locations in Malawi.</p>
@@ -922,7 +1004,7 @@
             <h3>Secretariat Coordinates</h3>
             <p><strong>Headquarters:</strong> Airwing, Plot 179, Mthunzi Heritage, Lilongwe</p>
             <p><strong>Postal Address:</strong> P.O. Box 3239, Lilongwe, Malawi</p>
-            <p style="margin-top: 14px; font-size: 0.85rem; color: var(--fresh-green); margin-bottom: 2px;">Executive Director: Panashe Maneya</p>
+            <p style="margin-top: 14px; font-size: 0.85rem; color: var(--fresh-green); margin-bottom: 2px;">Executive Director: Elizabeth Maneya</p>
             <p style="font-size: 0.85rem; color: var(--fresh-green);">Program Manager: Kennie Mboma</p>
         </div>
     </div>
@@ -954,7 +1036,6 @@
         
         navLinks.classList.toggle('show');
         
-        // Dynamically toggle button text for context clarity
         if (navLinks.classList.contains('show')) {
             menuBtn.innerHTML = 'Close &times;';
         } else {
