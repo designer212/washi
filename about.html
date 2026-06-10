@@ -31,7 +31,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Professional Header & Navigation (Perfectly matched to index.html style and logic) */
+        /* Professional Header & Navigation */
         nav {
             background-color: var(--forest-green);
             color: white;
@@ -117,22 +117,48 @@
             color: var(--forest-green);
         }
 
-        /* Page Banner */
+        /* Hero Sub-Header with Brand Watermark Background */
         .sub-header {
             background-color: var(--forest-green);
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sub-header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 380px;
+            height: 380px;
+            background-image: url('images/logo.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sub-header-content {
+            position: relative;
+            z-index: 2;
         }
 
         .sub-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.6rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .sub-header p {
-            font-size: 1.1rem;
-            max-width: 700px;
+            font-size: 1.15rem;
+            max-width: 720px;
             margin: 0 auto;
             color: #cbd5e1;
         }
@@ -150,6 +176,7 @@
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            font-weight: 800;
         }
 
         .section-title::after {
@@ -169,7 +196,7 @@
             max-width: 800px;
         }
 
-        /* --- TRUST FOUNDATION & IDENTITY --- */
+        /* Foundation Layout Structure */
         .foundation-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -185,7 +212,7 @@
             color: var(--text-dark);
         }
 
-        /* Founder Display Profile */
+        /* Founder Layout Card */
         .founder-box {
             background-color: var(--card-white);
             border-radius: 16px;
@@ -203,6 +230,12 @@
             margin: 0 auto 20px auto;
             border: 4px solid var(--fresh-green);
             overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .founder-img-frame:hover {
+            transform: scale(1.04);
         }
 
         .founder-img-frame img {
@@ -233,7 +266,7 @@
             line-height: 1.5;
         }
 
-        /* Strategic Targets Row */
+        /* Vision Mission Row */
         .pillars-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -260,7 +293,7 @@
             color: #4a5568;
         }
 
-        /* --- GOVERNANCE STRUCTURE LAYOUT SYSTEMS --- */
+        /* Governance Structure System */
         .secretariat-bg {
             background-color: var(--card-white);
             border-top: 1px solid var(--border-light);
@@ -347,10 +380,10 @@
             word-break: break-all;
         }
 
-        /* --- PROGRAM INTERVENTIONS HUB --- */
+        /* Program Interventions Layout Grid */
         .program-showcase-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
             margin-top: 40px;
         }
@@ -370,12 +403,42 @@
             height: 180px;
             background-color: #cbd5e1;
             overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .showcase-img-wrapper::after {
+            content: '\f00e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(27, 67, 50, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .showcase-img-wrapper:hover::after {
+            opacity: 1;
         }
 
         .showcase-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-img-wrapper:hover img {
+            transform: scale(1.05);
         }
 
         .showcase-content {
@@ -396,6 +459,7 @@
             color: #4a5568;
             margin-bottom: 20px;
             flex-grow: 1;
+            line-height: 1.5;
         }
 
         .pill-outline-btn {
@@ -421,7 +485,120 @@
             box-shadow: 0 4px 12px rgba(82, 183, 136, 0.2);
         }
 
-        /* Footer System */
+        /* Video System Configuration Grid */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .video-card {
+            background-color: var(--card-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-light);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            background-color: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 24px;
+        }
+
+        .video-info h3 {
+            color: var(--forest-green);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .video-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Interactive Image Preview Modal System Overlay */
+        .img-preview-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(11, 29, 22, 0.95);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .img-preview-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-view-wrapper {
+            position: relative;
+            max-width: 900px;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .img-preview-modal.active .modal-view-wrapper {
+            transform: scale(1);
+        }
+
+        .modal-view-wrapper img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-close-trigger {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-trigger:hover {
+            color: var(--fresh-green);
+        }
+
+        /* Footer Infrastructure System */
         footer {
             background-color: var(--forest-green);
             color: #f7fafc;
@@ -474,7 +651,6 @@
             color: var(--fresh-green);
         }
 
-        /* Social Links styling */
         .footer-social-links {
             display: flex;
             gap: 15px;
@@ -503,11 +679,10 @@
             color: #94a3b8;
         }
 
+        /* Responsive Breakpoints Rules */
         @media (max-width: 1024px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-            }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .media-grid { grid-template-columns: 1fr; gap: 25px; }
         }
 
         @media (max-width: 850px) {
@@ -515,28 +690,12 @@
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 14px 20px;
-            }
+            nav { padding: 14px 20px; }
+            .brand-wrapper { max-width: calc(100% - 110px); gap: 10px; }
+            .logo-img { height: 36px; }
+            .logo-text { font-size: 0.85rem; }
+            .mobile-menu-btn { display: block; }
 
-            .brand-wrapper {
-                max-width: calc(100% - 110px);
-                gap: 10px;
-            }
-
-            .logo-img {
-                height: 36px;
-            }
-
-            .logo-text {
-                font-size: 0.85rem;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            /* PREMIUM OVERLAY DROPDOWN MENU SYSTEM (Perfected from index.html) */
             .nav-links {
                 display: block;
                 position: absolute;
@@ -549,8 +708,6 @@
                 gap: 0;
                 align-items: stretch;
                 box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-                
-                /* Menu Fluid Animations */
                 opacity: 0;
                 transform: translateY(-10px);
                 pointer-events: none;
@@ -563,10 +720,7 @@
                 pointer-events: auto;
             }
 
-            .nav-links li {
-                width: 100%;
-            }
-
+            .nav-links li { width: 100%; }
             .nav-links li a {
                 display: block;
                 width: 100%;
@@ -579,10 +733,7 @@
                 border-left: 0px solid var(--fresh-green);
             }
 
-            .nav-links li:last-child a {
-                border-bottom: none;
-            }
-
+            .nav-links li:last-child a { border-bottom: none; }
             .nav-links li a:hover, .nav-links li a.active {
                 color: var(--fresh-green);
                 background-color: rgba(255, 255, 255, 0.03);
@@ -590,15 +741,13 @@
                 padding-left: 36px;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
+            .sub-header { padding: 70px 20px; }
+            .sub-header::before { width: 260px; height: 260px; }
+            .sub-header h1 { font-size: 2rem; }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 35px; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .modal-close-trigger { top: -45px; right: 10px; }
         }
     </style>
 </head>
@@ -622,8 +771,10 @@
     </nav>
 
     <header class="sub-header">
-        <h1>About WASH International Trust Malawi</h1>
-        <p>The operational team, strategic vision, and governance structures driving sustainable community transformation across Malawi.</p>
+        <div class="sub-header-content">
+            <h1>About WASH International Trust Malawi</h1>
+            <p>The operational team, strategic vision, and governance structures driving sustainable community transformation across Malawi.</p>
+        </div>
     </header>
 
     <main class="section-container">
@@ -637,7 +788,7 @@
             </div>
             
             <div class="founder-box">
-                <div class="founder-img-frame">
+                <div class="founder-img-frame" onclick="triggerPreview(this)">
                     <img src="images/founder.jpg" alt="Founder of WASH International">
                 </div>
                 <h3>Founder & Visionary</h3>
@@ -669,7 +820,7 @@
         <div class="leader-grid">
             <div class="leader-card">
                 <div class="avatar-placeholder">ED</div>
-                <h3>Panashe Maneya</h3>
+                <h3>Elizabeth Maneya</h3>
                 <div class="leader-role">Executive Director</div>
                 <p class="leader-bio">Directs administrative operations, manages partnerships, oversees programmatic execution, and ensures general legal and financial compliance across the trust.</p>
                 <div class="leader-email">pmaneya@washinternationalmw.org</div>
@@ -776,11 +927,11 @@
 
     <section class="section-container">
         <h2 class="section-title">Our Strategic Interventions</h2>
-        <p style="color: #4a5568; margin-top: 10px; max-width: 750px;">Explore the core operational activities we run. Click any pillar link below to see the specific frameworks and goals within our setup.</p>
+        <p class="section-subtitle">Explore the core operational activities we run. Click any pillar link below to see the specific frameworks and goals within our setup.</p>
         
         <div class="program-showcase-grid">
             <div class="showcase-card">
-                <div class="showcase-img-wrapper">
+                <div class="showcase-img-wrapper" onclick="triggerPreview(this)">
                     <img src="images/pillar_water.jpg" alt="Safe Water Supply">
                 </div>
                 <div class="showcase-content">
@@ -791,7 +942,7 @@
             </div>
             
             <div class="showcase-card">
-                <div class="showcase-img-wrapper">
+                <div class="showcase-img-wrapper" onclick="triggerPreview(this)">
                     <img src="images/pillar_irrigation.jpg" alt="Small-Scale Irrigation">
                 </div>
                 <div class="showcase-content">
@@ -802,7 +953,7 @@
             </div>
             
             <div class="showcase-card">
-                <div class="showcase-img-wrapper">
+                <div class="showcase-img-wrapper" onclick="triggerPreview(this)">
                     <img src="images/pillar3_1.jpg" alt="Women Financial Empowerment">
                 </div>
                 <div class="showcase-content">
@@ -813,13 +964,51 @@
             </div>
             
             <div class="showcase-card">
-                <div class="showcase-img-wrapper">
+                <div class="showcase-img-wrapper" onclick="triggerPreview(this)">
                     <img src="images/pillar_sanitation.jpg" alt="Improved Sanitation">
                 </div>
                 <div class="showcase-content">
                     <h3>Ventilated Improved Sanitation</h3>
                     <p>Building high-efficiency Ventilated Improved Pit (VIP) facilities to protect regional public sanitation systems cleanly.</p>
                     <a href="programs.html?p=4" class="pill-outline-btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="showcase-card">
+                <div class="showcase-img-wrapper" onclick="triggerPreview(this)">
+                    <img src="images/pillar8_1.jpg" alt="Farmer Research Center">
+                </div>
+                <div class="showcase-content">
+                    <h3>Farmer Research & Tech Development</h3>
+                    <p>Advancing grassroots agricultural testing fields and technology knowledge pipelines to maximize rural farmer crop yield outputs.</p>
+                    <a href="programs.html?p=8" class="pill-outline-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container" style="padding-top: 0;">
+        <h2 class="section-title">Field Operations</h2>
+        <p class="section-subtitle">Real-time video briefings covering field installations, stakeholder training milestones, and regional project progress.</p>
+        
+        <div class="media-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/qxpM8imgLho" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Community Water Asset Deployments</h3>
+                    <p>Documenting clean pump access initialization and committee handovers within regional development catchments.</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/xg7maUfCjF0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>WASH Field Interventions Showcase</h3>
+                    <p>Highlighting ongoing sustainability monitoring, hygiene resource mapping, and localized community engagement workflows.</p>
                 </div>
             </div>
         </div>
@@ -847,7 +1036,7 @@
                     <li><a href="programs.html?p=2">Small-Scale Irrigation</a></li>
                     <li><a href="programs.html?p=3">Improved Sanitation</a></li>
                     <li><a href="programs.html?p=4">Climate Justice Knowledge</a></li>
-                    <li><a href="programs.html?p=5">Geospatial Info & Mapping</a></li>
+                    <li><a href="programs.html?p=8">Farmer Research Center</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -855,7 +1044,7 @@
                 <p><strong>Headquarters:</strong> Airwing, Plot 179, Mthunzi Heritage, Lilongwe</p>
                 <p><strong>Postal Address:</strong> P.O. Box 3239, Lilongwe 3, Malawi</p>
                 <div class="footer-social-links">
-                    <a href="mailto:maniamafe@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:Washimw2019@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="https://www.facebook.com/WASHInternationalTrust" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -867,6 +1056,13 @@
         </div>
     </footer>
 
+    <div class="img-preview-modal" id="previewModal" onclick="closePreview()">
+        <div class="modal-view-wrapper" onclick="event.stopPropagation()">
+            <button class="modal-close-trigger" onclick="closePreview()">&times;</button>
+            <img src="" id="modalTargetImg" alt="Focused Preview Display Asset">
+        </div>
+    </div>
+
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
@@ -875,11 +1071,28 @@
             if (window.innerWidth <= 768) {
                 navLinks.classList.toggle('show');
                 if (navLinks.classList.contains('show')) {
-                    menuBtn.innerText = "Close";
+                    menuBtn.innerHTML = "Close &times;";
                 } else {
                     menuBtn.innerText = "Menu";
                 }
             }
+        }
+
+        // Image Interactive Modal Engine Setup
+        function triggerPreview(wrapperElement) {
+            const staticImgSrc = wrapperElement.querySelector('img').src;
+            const modalTarget = document.getElementById('modalTargetImg');
+            const modalContainer = document.getElementById('previewModal');
+            
+            modalTarget.src = staticImgSrc;
+            modalContainer.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Freeze scrolling lock
+        }
+
+        function closePreview() {
+            const modalContainer = document.getElementById('previewModal');
+            modalContainer.classList.remove('active');
+            document.body.style.overflow = ''; // Unlock scrolling
         }
     </script>
 </body>
