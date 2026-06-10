@@ -116,17 +116,14 @@
             color: var(--forest-green);
         }
 
-        /* Hero Showcase Slider */
+        /* Cinematic Hero Showcase Slider */
         .hero-slider-section {
             position: relative;
             width: 100%;
             height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
             overflow: hidden;
             color: white;
+            background-color: #0d1f16;
         }
 
         .hero-slides {
@@ -147,26 +144,64 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            transition: opacity 1.2s ease-in-out;
+            visibility: hidden;
+            transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(13, 31, 22, 0.5), rgba(13, 31, 22, 0.85));
+            z-index: 1;
         }
 
         .hero-slide.active {
             opacity: 1;
+            visibility: visible;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 850px;
+            max-width: 900px;
             padding: 0 24px;
+            transform: translateY(15px);
+            transition: transform 0.8s ease-out;
+        }
+
+        .hero-slide.active .hero-content {
+            transform: translateY(0);
+        }
+
+        .hero-pillar-caption {
+            display: inline-block;
+            background-color: var(--fresh-green);
+            color: var(--forest-green);
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         .hero-content h1 {
             font-size: 3.5rem;
             font-weight: 800;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             letter-spacing: -0.5px;
             line-height: 1.15;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
         }
 
         .hero-content p {
@@ -175,6 +210,7 @@
             margin-bottom: 35px;
             color: #f1f5f9;
             font-weight: 400;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
 
         /* Institutional Metric Highlights */
@@ -266,7 +302,7 @@
 
         .section-header {
             text-align: center;
-            max-width: 750px;
+            max-width: 850px;
             margin: 0 auto 60px auto;
         }
 
@@ -293,7 +329,25 @@
             color: var(--text-muted);
         }
 
-        /* Pillars Strategy Layout */
+        /* Strategic Framework Connection Box */
+        .framework-statement {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--fresh-green);
+            padding: 18px 24px;
+            margin: 25px auto 0 auto;
+            text-align: left;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+        }
+
+        .framework-statement p {
+            font-size: 1.05rem;
+            color: var(--forest-green);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Pillars Strategy Grid Layout */
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -321,12 +375,24 @@
             height: 220px;
             position: relative;
             background-color: #e2e8f0;
+            overflow: hidden;
         }
 
         .pillar-cover img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 1;
+        }
+
+        .pillar-cover img.active {
+            opacity: 1;
+            z-index: 2;
         }
 
         .pillar-badge {
@@ -341,6 +407,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            z-index: 10;
         }
 
         .pillar-body {
@@ -384,7 +451,7 @@
         .video-wrapper {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%;
             height: 0;
             background-color: #000;
         }
@@ -548,7 +615,6 @@
             resize: none;
         }
 
-        /* Organizational Structured Footer */
         footer {
             background-color: var(--forest-green);
             color: #f7fafc;
@@ -646,7 +712,6 @@
             fill: var(--forest-green);
         }
 
-        /* Screen Breakpoint Settings */
         @media (max-width: 1024px) {
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
             .values-banner { grid-template-columns: 1fr; gap: 30px; }
@@ -661,7 +726,6 @@
             
             .mobile-menu-btn { display: block; }
             
-            /* HIGH-END DROPDOWN MENU OVERLAY SYSTEM */
             .nav-links {
                 display: block;
                 position: absolute;
@@ -674,8 +738,6 @@
                 gap: 0;
                 align-items: stretch;
                 box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-                
-                /* State-Driven Transitions */
                 opacity: 0;
                 transform: translateY(-10px);
                 pointer-events: none;
@@ -688,9 +750,7 @@
                 pointer-events: auto;
             }
 
-            .nav-links li {
-                width: 100%;
-            }
+            .nav-links li { width: 100%; }
 
             .nav-links li a {
                 display: block;
@@ -704,9 +764,7 @@
                 border-left: 0px solid var(--fresh-green);
             }
 
-            .nav-links li:last-child a {
-                border-bottom: none;
-            }
+            .nav-links li:last-child a { border-bottom: none; }
 
             .nav-links li a:hover, .nav-links li a.active {
                 color: var(--fresh-green);
@@ -715,7 +773,7 @@
                 padding-left: 36px;
             }
             
-            .hero-content h1 { font-size: 2.4rem; }
+            .hero-content h1 { font-size: 2.2rem; }
             .hero-content p { font-size: 1.05rem; }
             .metrics-bar { grid-template-columns: repeat(2, 1fr); margin-top: -40px; padding: 20px; gap: 15px; }
             .metric-item h4 { font-size: 1.8rem; }
@@ -755,25 +813,74 @@
 
 <header class="hero-slider-section">
     <div class="hero-slides">
-        <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), url('images/pillar1_1.jpg');"></div>
-        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), url('images/pillar2_1.jpg');"></div>
-        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), url('images/pillar3_1.jpg');"></div>
-        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), url('images/pillar4_1.jpg');"></div>
-        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), url('images/pillar5_1.jpg');"></div>
-        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), url('images/pillar6_1.jpg');"></div>
-        <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)), url('images/pillar7_1.jpg');"></div>
-    </div>
-    
-    <div class="hero-content">
-        <h1>#End WASH Poverty</h1>
-        <p>Deploying community-managed water assets and robust climate-smart innovations to build grassroots resilience throughout Malawi.</p>
-        <a href="programs.html" class="btn-action btn-outline-light">Review Strategic Actions</a>
+        <div class="hero-slide active" style="background-image: url('images/pillar_water.jpg');">
+            <div class="hero-content">
+                <span class="hero-pillar-caption">Pillar 1: Safe Water Supply</span>
+                <h1>#End WASH Poverty</h1>
+                <p>Deploying community-managed water assets and robust climate-smart innovations to build grassroots resilience throughout Malawi.</p>
+                <a href="programs.html?p=1" class="btn-action btn-outline-light">Review Safe Water Actions</a>
+            </div>
+        </div>
+        
+        <div class="hero-slide" style="background-image: url('images/pillar_irrigation.jpg');">
+            <div class="hero-content">
+                <span class="hero-pillar-caption">Pillar 2: Smart Agriculture</span>
+                <h1>Small-Scale Irrigation Systems</h1>
+                <p>Equipping youth groups and community blocks with high-efficiency agricultural units to secure yields regardless of weather timelines.</p>
+                <a href="programs.html?p=2" class="btn-action btn-outline-light">Explore Irrigation Networks</a>
+            </div>
+        </div>
+        
+        <div class="hero-slide" style="background-image: url('images/pillar_women.jpg');">
+            <div class="hero-content">
+                <span class="hero-pillar-caption">Pillar 3: Women Empowerment</span>
+                <h1>Socio-Economic Development</h1>
+                <p>Facilitating grassroots village savings and loans associations to provide marginalized rural mothers with capital options.</p>
+                <a href="programs.html?p=3" class="btn-action btn-outline-light">View Empowerment Blueprints</a>
+            </div>
+        </div>
+        
+        <div class="hero-slide" style="background-image: url('images/pillar_sanitation.jpg');">
+            <div class="hero-content">
+                <span class="hero-pillar-caption">Pillar 4: Advanced Sanitation</span>
+                <h1>Ventilated Improved Latrines</h1>
+                <p>Building proper, highly adaptive ventilated systems to preserve family health and safeguard regional water tables.</p>
+                <a href="programs.html?p=4" class="btn-action btn-outline-light">Learn About Sanitation Systems</a>
+            </div>
+        </div>
+        
+        <div class="hero-slide" style="background-image: url('images/pillar_environment.jpg');">
+            <div class="hero-content">
+                <span class="hero-pillar-caption">Pillar 5: Environmental Management</span>
+                <h1>Catchment Area Protection</h1>
+                <p>Stabilizing local soil matrices, tracking ecosystem baselines, and protecting structural river catchments systematically.</p>
+                <a href="programs.html?p=5" class="btn-action btn-outline-light">Review Environmental Protocols</a>
+            </div>
+        </div>
+        
+        <div class="hero-slide" style="background-image: url('images/pillar_green.jpg');">
+            <div class="hero-content">
+                <span class="hero-pillar-caption">Pillar 6: Green Villages Campaign</span>
+                <h1>Agro-Forestry & Seed Banking</h1>
+                <p>Enforcing active tree placement schemes and developing long-term alternative income structures such as sustainable bee farming.</p>
+                <a href="programs.html?p=6" class="btn-action btn-outline-light">See Forestry Projects</a>
+            </div>
+        </div>
+        
+        <div class="hero-slide" style="background-image: url('images/pillar_gis.jpg');">
+            <div class="hero-content">
+                <span class="hero-pillar-caption">Pillar 7: Geospatial Mapping</span>
+                <h1>Remote Infrastructure Sensing</h1>
+                <p>Leveraging specialized geographical tracking frameworks to safely measure field asset health records without data gaps.</p>
+                <a href="programs.html?p=7" class="btn-action btn-outline-light">Open Mapping Portals</a>
+            </div>
+        </div>
     </div>
 </header>
 
 <section class="metrics-bar">
     <div class="metric-item">
-        <h4>7</h4>
+        <h4>8</h4>
         <p>Strategic Pillars</p>
     </div>
     <div class="metric-item">
@@ -795,14 +902,20 @@
         <span>Interventions Framework</span>
         <h2>Our Core Strategic Actions</h2>
         <p>WASH International Trust Malawi targets vulnerable community hubs, early childhood centers, and rural households to introduce localized, long-term self-supporting infrastructures.</p>
+        
+        <div class="framework-statement">
+            <p>The 8 pillars are interconnected in a strategic framework focusing on Climate Justice, Economic Empowerment and Resilience Building and Farmer Research and Knowledge Sharing.</p>
+        </div>
     </div>
 
     <div class="pillars-grid">
         
         <div class="pillar-card">
-            <div class="pillar-cover">
-                <img src="images/pillar_water.jpg" alt="Water Supply Access Installations">
+            <div class="pillar-cover js-pillar-slider">
                 <span class="pillar-badge">Pillar 1</span>
+                <img src="images/pillar_water.jpg" class="active" alt="Safe Water Supply A">
+                <img src="images/pillar_irrigation.jpg" alt="Safe Water Supply B">
+                <img src="images/pillar_sanitation.jpg" alt="Safe Water Supply C">
             </div>
             <div class="pillar-body">
                 <h3>Safe Water Supply & Hygiene</h3>
@@ -812,9 +925,11 @@
         </div>
 
         <div class="pillar-card">
-            <div class="pillar-cover">
-                <img src="images/pillar_irrigation.jpg" alt="Small Scale Dry Season Irrigation">
+            <div class="pillar-cover js-pillar-slider">
                 <span class="pillar-badge">Pillar 2</span>
+                <img src="images/pillar_irrigation.jpg" class="active" alt="Irrigation A">
+                <img src="images/pillar_water.jpg" alt="Irrigation B">
+                <img src="images/pillar_environment.jpg" alt="Irrigation C">
             </div>
             <div class="pillar-body">
                 <h3>Small-Scale Irrigation Systems</h3>
@@ -824,9 +939,11 @@
         </div>
 
         <div class="pillar-card">
-            <div class="pillar-cover">
-                <img src="images/pillar_women.jpg" alt="Women group assembly and village banking">
+            <div class="pillar-cover js-pillar-slider">
                 <span class="pillar-badge">Pillar 3</span>
+                <img src="images/pillar_women.jpg" class="active" alt="Women Economic Empowerment A">
+                <img src="images/pillar_green.jpg" alt="Women Economic Empowerment B">
+                <img src="images/pillar_water.jpg" alt="Women Economic Empowerment C">
             </div>
             <div class="pillar-body">
                 <h3>Women Economic Empowerment</h3>
@@ -836,9 +953,11 @@
         </div>
 
         <div class="pillar-card">
-            <div class="pillar-cover">
-                <img src="images/pillar_sanitation.jpg" alt="Ventilated Improved Latrines Construction">
+            <div class="pillar-cover js-pillar-slider">
                 <span class="pillar-badge">Pillar 4</span>
+                <img src="images/pillar_sanitation.jpg" class="active" alt="Sanitation A">
+                <img src="images/pillar_water.jpg" alt="Sanitation B">
+                <img src="images/pillar_environment.jpg" alt="Sanitation C">
             </div>
             <div class="pillar-body">
                 <h3>Ventilated Improved Sanitation</h3>
@@ -848,9 +967,11 @@
         </div>
 
         <div class="pillar-card">
-            <div class="pillar-cover">
-                <img src="images/pillar_environment.jpg" alt="Environmental land management runs">
+            <div class="pillar-cover js-pillar-slider">
                 <span class="pillar-badge">Pillar 5</span>
+                <img src="images/pillar_environment.jpg" class="active" alt="Environmental Management A">
+                <img src="images/pillar_gis.jpg" alt="Environmental Management B">
+                <img src="images/pillar_green.jpg" alt="Environmental Management C">
             </div>
             <div class="pillar-body">
                 <h3>Environmental Management</h3>
@@ -860,9 +981,11 @@
         </div>
 
         <div class="pillar-card">
-            <div class="pillar-cover">
-                <img src="images/pillar_green.jpg" alt="Agro Forestry Seed Banking">
+            <div class="pillar-cover js-pillar-slider">
                 <span class="pillar-badge">Pillar 6</span>
+                <img src="images/pillar_green.jpg" class="active" alt="Green Villages A">
+                <img src="images/pillar_environment.jpg" alt="Green Villages B">
+                <img src="images/pillar_women.jpg" alt="Green Villages C">
             </div>
             <div class="pillar-body">
                 <h3>Green Villages Campaign</h3>
@@ -872,14 +995,30 @@
         </div>
 
         <div class="pillar-card">
-            <div class="pillar-cover">
-                <img src="images/pillar_gis.jpg" alt="Geospatial Mapping Remote Sensing">
+            <div class="pillar-cover js-pillar-slider">
                 <span class="pillar-badge">Pillar 7</span>
+                <img src="images/pillar7_1.jpg" class="active" alt="Geospatial Mapping A">
+                <img src="images/pillar7_3.jpg" alt="Geospatial Mapping B">
+                <img src="images/pillar7_5.jpg" alt="Geospatial Mapping C">
             </div>
             <div class="pillar-body">
                 <h3>Geospatial Info & Mapping</h3>
                 <p>Leveraging remote sensing platforms and precise digital data tracking setups to safely monitor physical asset lifespans and identify infrastructure gaps.</p>
                 <div><a href="programs.html?p=7" class="btn-action btn-primary-green" style="width: 100%;">Learn More</a></div>
+            </div>
+        </div>
+
+        <div class="pillar-card">
+            <div class="pillar-cover js-pillar-slider">
+                <span class="pillar-badge">Pillar 8</span>
+                <img src="images/pillar8_1.jpg" class="active" alt="Farmer Research A">
+                <img src="images/pillar8_3.jpg" alt="Farmer Research B">
+                <img src="images/pillar8_5.jpg" alt="Farmer Research C">
+            </div>
+            <div class="pillar-body">
+                <h3>Farmer Research & Technology Development Center</h3>
+                <p>Advancing grassroots agricultural research, field testing sustainable technologies, and facilitating intensive knowledge sharing networks to maximize crop resilience.</p>
+                <div><a href="programs.html?p=8" class="btn-action btn-primary-green" style="width: 100%;">Learn More</a></div>
             </div>
         </div>
 
@@ -900,35 +1039,35 @@
         </div>
     </section>
 
-<section class="video-showcase-section" style="margin: 90px 0;">
-    <div class="section-header">
-        <span>Field Operations</span>
-        <h2>Our Impact in Motion</h2>
-        <p>Watch how clean water supply installations and strategic resource distribution directly support communities across rural Malawi districts.</p>
-    </div>
-    
-    <div class="media-grid">
-        <div class="video-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/qxpM8imgLho" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-info">
-                <h3>Community Water Asset Deployments</h3>
-                <p>Documenting clean pump access initialization and committee handovers within regional development catchments.</p>
-            </div>
+    <section class="video-showcase-section" style="margin: 90px 0;">
+        <div class="section-header">
+            <span>Field Operations</span>
+            <h2>Our Impact in Motion</h2>
+            <p>Watch how clean water supply installations and strategic resource distribution directly support communities across rural Malawi districts.</p>
         </div>
         
-        <div class="video-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/xg7maUfCjF0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="media-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/qxpM8imgLho" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-write" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Community Water Asset Deployments</h3>
+                    <p>Documenting clean pump access initialization and committee handovers within regional development catchments.</p>
+                </div>
             </div>
-            <div class="video-info">
-                <h3>WASH Field Interventions Showcase</h3>
-                <p>Highlighting ongoing sustainability monitoring, hygiene resource mapping, and localized community engagement workflows.</p>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/xg7maUfCjF0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>WASH Field Interventions Showcase</h3>
+                    <p>Highlighting ongoing sustainability monitoring, hygiene resource mapping, and localized community engagement workflows.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <div class="cta-callout" id="support">
         <h3>Support Our Community Impact</h3>
@@ -1033,9 +1172,7 @@
     function toggleMenu() {
         const navLinks = document.getElementById('navLinks');
         const menuBtn = document.getElementById('menuBtn');
-        
         navLinks.classList.toggle('show');
-        
         if (navLinks.classList.contains('show')) {
             menuBtn.innerHTML = 'Close &times;';
         } else {
@@ -1043,16 +1180,34 @@
         }
     }
 
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
-    
-    if(slides.length > 0) {
+    // Mechanism 1: Main Top Hero Showcase Slider Rotation
+    let currentHeroSlide = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    if(heroSlides.length > 0) {
         setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 5000); 
+            heroSlides[currentHeroSlide].classList.remove('active');
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            heroSlides[currentHeroSlide].classList.add('active');
+        }, 5000);
     }
+
+    // Mechanism 2: Multi-Card Individual Grid Sliders (5-Second Cross-Fade Loop using original existing assets)
+    document.addEventListener('DOMContentLoaded', () => {
+        const sliders = document.querySelectorAll('.js-pillar-slider');
+        
+        sliders.forEach(slider => {
+            const images = slider.querySelectorAll('img');
+            if (images.length <= 1) return;
+
+            let currentCardIndex = 0;
+
+            setInterval(() => {
+                images[currentCardIndex].classList.remove('active');
+                currentCardIndex = (currentCardIndex + 1) % images.length;
+                images[currentCardIndex].classList.add('active');
+            }, 5000);
+        });
+    });
 </script>
 </body>
 </html>
