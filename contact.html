@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | WASH International Trust Malawi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --forest-green: #1b4332;
@@ -57,6 +58,8 @@
             gap: 14px;
             max-width: 75%;
             z-index: 1010;
+            text-decoration: none;
+            color: white;
         }
 
         .logo-img {
@@ -116,25 +119,48 @@
             color: var(--forest-green);
         }
 
-        /* Inner Page Hero Banner */
-        .page-hero {
+        /* Standardized Hero Sub-Header with Brand Logo Background Watermark */
+        .sub-header {
             background-color: var(--forest-green);
-            background-image: linear-gradient(rgba(27, 67, 50, 0.85), rgba(27, 67, 50, 0.95));
             color: white;
             text-align: center;
-            padding: 60px 24px;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .page-hero h1 {
+        .sub-header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 380px;
+            height: 380px;
+            background-image: url('images/logo.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sub-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .sub-header h1 {
             font-size: 2.5rem;
+            margin-bottom: 10px;
             font-weight: 800;
-            margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
 
-        .page-hero p {
+        .sub-header p {
             font-size: 1.1rem;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             color: #cbd5e1;
         }
@@ -191,30 +217,120 @@
         }
 
         .contact-details p {
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             color: var(--text-muted);
             font-size: 1rem;
         }
 
+        /* Interactive Circular Pillars Space Navigation */
+        .program-bubble-space {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+            margin-top: 25px;
+        }
+
+        .bubble-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            text-align: center;
+        }
+
+        .program-circle-btn {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border: 3px solid white;
+            outline: 2px solid var(--border-light);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Dark overlay effect inside circle images to keep icons perfectly visible */
+        .program-circle-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(27, 67, 50, 0.65);
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+
+        .program-circle-btn i {
+            color: white;
+            font-size: 1.8rem;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .bubble-label {
+            margin-top: 10px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        /* Dynamic interaction styles on hover */
+        .program-circle-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(45, 106, 79, 0.25);
+            outline-color: var(--fresh-green);
+        }
+
+        .program-circle-btn:hover::before {
+            background-color: rgba(82, 183, 136, 0.85);
+        }
+
+        .program-circle-btn:hover i {
+            transform: scale(1.15);
+            color: var(--forest-green);
+        }
+
+        /* Core Contact Structural Details Fields placement below buttons area */
+        .secretariat-minimal-coordinates {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px dashed var(--border-light);
+        }
+
         .coordinate-item {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .coordinate-item span {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--dark-green);
             letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .coordinate-item a, .coordinate-item text {
             color: var(--text-dark);
             font-weight: 600;
             text-decoration: none;
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         .form-group {
@@ -414,9 +530,12 @@
                 padding-left: 36px;
             }
             
-            .page-hero h1 { font-size: 2rem; }
+            .sub-header { padding: 70px 20px; }
+            .sub-header::before { width: 260px; height: 260px; }
+            .sub-header h1 { font-size: 2rem; }
             .content-section { margin: 40px auto; }
             .contact-grid { grid-template-columns: 1fr; padding: 30px; gap: 40px; }
+            .program-bubble-space { justify-content: center; }
             .footer-grid { grid-template-columns: 1fr; gap: 35px; }
             .footer-bottom { flex-direction: column; text-align: center; }
         }
@@ -426,10 +545,10 @@
 
 <nav>
     <div class="nav-container">
-        <div class="brand-wrapper">
+        <a href="index.html" class="brand-wrapper">
             <img src="images/logo.png" alt="WASH Trust Logo" class="logo-img">
             <div class="logo-text">WASH International<br>Trust Malawi</div>
-        </div>
+        </a>
         
         <button class="mobile-menu-btn" id="menuBtn" onclick="toggleMenu()">Menu</button>
         
@@ -443,25 +562,59 @@
     </div>
 </nav>
 
-<header class="page-hero">
-    <h1>Contact Secretariat</h1>
-    <p>Partner with us, review physical field asset parameters, or send baseline coordination inquiries directly to our team.</p>
+<header class="sub-header">
+    <div class="sub-header-content">
+        <h1>Contact Secretariat</h1>
+        <p>Partner with us, review physical field asset parameters, or send baseline coordination inquiries directly to our team.</p>
+    </div>
 </header>
 
 <main class="content-section">
     <div class="contact-grid">
         <div class="contact-details">
             <h3>Get In Touch</h3>
-            <p>We operate with absolute transparency, data integrity, and strict administrative stewardship. Reach out directly to our central registry office to inquire about ongoing programs, field data, or joint coordination frameworks.</p>
+            <p>Explore our structural frameworks directly. Tap any core intervention pillar badge below to view its explicit system descriptions, deep layout maps, and localized field documentation inside our programs repository:</p>
             
-            <div class="coordinate-item">
-                <span>Primary Secretariat Email</span>
-                <a href="mailto:Washimw2019@gmail.com">Washimw2019@gmail.com</a>
+            <div class="program-bubble-space">
+                <div class="bubble-wrapper">
+                    <a href="programs.html?p=1" class="program-circle-btn" style="background-image: url('images/support_field.jpg');" title="Explore Water & Hygiene Interventions">
+                        <i class="fas fa-faucet-drip"></i>
+                    </a>
+                    <div class="bubble-label">Water & Hygiene</div>
+                </div>
+
+                <div class="bubble-wrapper">
+                    <a href="programs.html?p=2" class="program-circle-btn" style="background-image: url('images/support_field.jpg');" title="Explore Irrigation Systems Architecture">
+                        <i class="fas fa-seedling"></i>
+                    </a>
+                    <div class="bubble-label">Irrigation Systems</div>
+                </div>
+
+                <div class="bubble-wrapper">
+                    <a href="programs.html?p=3" class="program-circle-btn" style="background-image: url('images/support_field.jpg');" title="Explore VSLA Alliances Foundations">
+                        <i class="fas fa-hand-holding-dollar"></i>
+                    </a>
+                    <div class="bubble-label">VSLA Alliances</div>
+                </div>
+
+                <div class="bubble-wrapper">
+                    <a href="programs.html?p=5" class="program-circle-btn" style="background-image: url('images/support_field.jpg');" title="Explore Environmental Management Stewardship">
+                        <i class="fas fa-earth-africa"></i>
+                    </a>
+                    <div class="bubble-label">Environment</div>
+                </div>
             </div>
-            
-            <div class="coordinate-item">
-                <span>Central Registry Helpline</span>
-                <text>+265 994 446 818 / +265 993 714 768</text>
+
+            <div class="secretariat-minimal-coordinates">
+                <div class="coordinate-item">
+                    <span>Primary Secretariat Email</span>
+                    <a href="mailto:Washimw2019@gmail.com">Washimw2019@gmail.com</a>
+                </div>
+                
+                <div class="coordinate-item">
+                    <span>Central Registry Helpline</span>
+                    <text>+265 994 446 818 / +265 993 714 768</text>
+                </div>
             </div>
         </div>
         
@@ -518,7 +671,7 @@
             <h3>Secretariat Coordinates</h3>
             <p><strong>Headquarters:</strong> Airwing, Plot 179, Mthunzi Heritage, Lilongwe</p>
             <p><strong>Postal Address:</strong> P.O. Box 3239, Lilongwe, Malawi</p>
-            <p style="margin-top: 14px; font-size: 0.85rem; color: var(--fresh-green); margin-bottom: 2px;">Executive Director: Panashe Maneya</p>
+            <p style="margin-top: 14px; font-size: 0.85rem; color: var(--fresh-green); margin-bottom: 2px;">Executive Director: Elizabeth Maneya</p>
             <p style="font-size: 0.85rem; color: var(--fresh-green);">Program Manager: Kennie Mboma</p>
         </div>
     </div>
